@@ -17,7 +17,7 @@ namespace QuaternionTest
             Console.CursorVisible = false;
 
             bool useTargetedRotation = false;
-            double angle = 20, targetedAngle = 90;
+            double angle = 5, targetedAngle = 90;
 
             Quaternion rotationUp = Quaternion.CreateOrthogonalRotation(Direction.Up, angle);
             Quaternion rotationDown = Quaternion.CreateOrthogonalRotation(Direction.Down, angle);
@@ -219,29 +219,29 @@ namespace QuaternionTest
                     } while (!rotatePressed);
 
                     #region Auto rotate
-                    //do
-                    //{
-                    //    Framer framer = new Framer(() =>
-                    //    {
-                    //        RotateAndPrint(space, rotation);
-                    //        WriteLinePad("ANY KEY TO CANCEL");
-                    //        shapeForward = rotation * shapeForward;
-                    //        if (useTargetedRotation)
-                    //            rotation = Quaternion.RotationTowards(shapeForward, CheckRotationInput(inputDirChar, targetedAngle) * Vector.forward, angle);
-                    //    }, 30);
-                    //    framer.Start();
+                    do
+                    {
+                        Framer framer = new Framer(() =>
+                        {
+                            RotateAndPrint(space, rotation);
+                            WriteLinePad("ANY KEY TO CANCEL");
+                            shapeForward = rotation * shapeForward;
+                            if (useTargetedRotation)
+                                rotation = Quaternion.RotationTowards(shapeForward, CheckRotationInput(inputDirChar, targetedAngle) * Vector.forward, angle);
+                        }, 30);
+                        framer.Start();
 
-                    //    inputDirChar = Console.ReadKey();
-                    //    rotation = CheckRotationInput(inputDirChar, angle);
+                        inputDirChar = Console.ReadKey();
+                        rotation = CheckRotationInput(inputDirChar, angle);
 
-                    //    framer.Stop();
-                    //} while (rotation != Quaternion.identity);
-                    //Console.SetCursorPosition(0, 0);
+                        framer.Stop();
+                    } while (rotation != Quaternion.identity);
+                    Console.SetCursorPosition(0, 0);
                     #endregion
 
                     #region Rotate once
-                    RotateAndPrint(space, rotation);
-                    Console.SetCursorPosition(0, 0);
+                    //RotateAndPrint(space, rotation);
+                    //Console.SetCursorPosition(0, 0);
                     #endregion
                 }
 
