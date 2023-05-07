@@ -257,12 +257,16 @@ namespace QuaternionTest
         {
             switch (inputDirChar.Key)
             {
+                case ConsoleKey.W:
                 case ConsoleKey.UpArrow:
                     return Quaternion.CreateOrthogonalRotation(Direction.Up, angle);
+                case ConsoleKey.X:
                 case ConsoleKey.DownArrow:
                     return Quaternion.CreateOrthogonalRotation(Direction.Down, angle);
+                case ConsoleKey.A:
                 case ConsoleKey.LeftArrow:
                     return Quaternion.CreateOrthogonalRotation(Direction.Left, angle);
+                case ConsoleKey.D:
                 case ConsoleKey.RightArrow:
                     return Quaternion.CreateOrthogonalRotation(Direction.Right, angle);
                 case ConsoleKey.NumPad8:
@@ -273,12 +277,16 @@ namespace QuaternionTest
                     return Quaternion.CreateOrthogonalRotation(Direction.Left, angle);
                 case ConsoleKey.NumPad6:
                     return Quaternion.CreateOrthogonalRotation(Direction.Right, angle);
+                case ConsoleKey.Z:
                 case ConsoleKey.NumPad1:
                     return Quaternion.CreateOrthogonalRotation(Direction.Down, angle / 1.41) * Quaternion.CreateOrthogonalRotation(Direction.Left, angle / 1.41);
+                case ConsoleKey.C:
                 case ConsoleKey.NumPad3:
                     return Quaternion.CreateOrthogonalRotation(Direction.Down, angle / 1.41) * Quaternion.CreateOrthogonalRotation(Direction.Right, angle / 1.41);
+                case ConsoleKey.E:
                 case ConsoleKey.NumPad9:
                     return Quaternion.CreateOrthogonalRotation(Direction.Up, angle / 1.41) * Quaternion.CreateOrthogonalRotation(Direction.Right, angle / 1.41);
+                case ConsoleKey.Q:
                 case ConsoleKey.NumPad7:
                     return Quaternion.CreateOrthogonalRotation(Direction.Up, angle / 1.41) * Quaternion.CreateOrthogonalRotation(Direction.Left, angle / 1.41);
             }
